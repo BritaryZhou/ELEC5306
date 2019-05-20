@@ -26,7 +26,7 @@ def generate_single_batch(train_input_dir, train_label_dir, batch_paths, crop_fl
 
     for bp in batch_paths:
         train_label_image_path = os.path.join(train_label_dir, bp)
-        train_input_image_path = os.path.join(train_input_dir, bp[:-5] + '_q40_' + bp[-5:-4] +'.jpg')
+        train_input_image_path = os.path.join(train_input_dir, bp[:-5] + '_q40_' + bp[-5:-4] +'.jpg')  # q40 jpg
         img_label = Image.open(train_label_image_path)
         img_input = Image.open(train_input_image_path)
         # crop images to half size.

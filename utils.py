@@ -51,15 +51,17 @@ def get_full_name_list(list_name, stage_flag):
         str_print = 'len(test_image_list):'
     print(str_print + str(len(image_list)))
     for i in range(0, len(image_list)):
-        if i % 2 == 0:
-            til = image_list[i].rstrip()
-            if stage_flag == 'train':
+        if stage_flag == 'train':
+            if i % 2 == 0:
+                til = image_list[i].rstrip()
                 for j in range(1, 8):
                     til_png = til + '/im' + str(j) + '.png'
                     full_image_list.append(til_png)
-            elif stage_flag == 'test':
-                til_png = til + '/im4.png'
-                full_image_list.append(til_png)
+        elif stage_flag == 'test':
+            til = image_list[i].rstrip()
+            til_png = til + '/im4.png'
+            full_image_list.append(til_png)
+
     if stage_flag == 'train':
         str_print = 'len(full_train_image_list):'
     elif stage_flag == 'test':
